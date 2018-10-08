@@ -1,6 +1,7 @@
 # Wunderfleet Registration test
 
 Base URL : http://localhost/wunder_test/
+Testing this project: Install XAMPP and pull this repository in htdocs folder of xamppfiles. Then import the database from the export mentioned below. Start the apache server and go to the base url.
 
 ### Tech Stack used
 
@@ -27,7 +28,7 @@ Adding a good front end framework like Angular JS could have imporved performace
 
 ### Improvements
 
-This application contains only frontend validation of the form. Backend validation is to be added. 
+This application contains only frontend validation of the form. Backend validation is to be added. Page is not responsive at the moment.
 
 
 ### Security measures taken
