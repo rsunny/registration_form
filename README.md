@@ -1,5 +1,6 @@
 # Wunderfleet Registration test
 
+Base URL : http://localhost/wunder_test/
 
 ### Tech Stack used
 
