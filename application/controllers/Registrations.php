@@ -12,15 +12,15 @@
 		}
 
 		public function registration_validation() {
-			$firstname = $_POST['firstname'];
-			$lastname = $_POST['lastname'];
-			$telephone = $_POST['telephone'];
-			$address = $_POST['address'];
-			$house = $_POST['house'];
-			$city = $_POST['city'];
-			$zipcode = $_POST['zipcode'];
-			$account = $_POST['account'];
-			$iban = $_POST['iban'];
+			$firstname = $this->security->xss_clean($_POST['firstname']);
+			$lastname = $this->security->xss_clean($_POST['lastname']);
+			$telephone = $this->security->xss_clean($_POST['telephone']);
+			$address = $this->security->xss_clean($_POST['address']);
+			$house = $this->security->xss_clean($_POST['house']);
+			$city = $this->security->xss_clean($_POST['city']);
+			$zipcode = $this->security->xss_clean($_POST['zipcode']);
+			$account = $this->security->xss_clean($_POST['account']);
+			$iban = $this->security->xss_clean($_POST['iban']);
 
 			$url = "https://37f32cl571.execute-api.eu-central-1.amazonaws.com/default/wunderfleet-recruiting-backend-dev-save-payment-data";
 
@@ -54,7 +54,6 @@
 				$data->accountOwner = $account;
 				$data->iban = $iban;
 				$data->paymentDataId = $paymentDataId->paymentDataId;
-				$data = $this->security->xss_clean($data);
 
 				$result = $this->registration_model->insert_data($data);
 

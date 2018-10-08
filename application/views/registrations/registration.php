@@ -1,7 +1,3 @@
-<!-- <?php 
-	require_once APPPATH."controllers/Token.php";
-?>
- -->
 <!DOCTYPE html>
 
 <html lang="en">
@@ -169,6 +165,22 @@
 	</div>	
 
 	<script type="text/javascript">
+		function clearCookies() {
+			if (validate_step3()) {
+				Cookies.remove('firstname');
+				Cookies.remove('lastname');
+				Cookies.remove('telephone');
+				Cookies.remove('address');
+				Cookies.remove('house');
+				Cookies.remove('city');
+				Cookies.remove('zipcode');
+				Cookies.remove('account');
+				Cookies.remove('iban');
+				return true;
+			}
+			return false;
+		}
+
 		$(document).ready(function(){
 			
 			$('.firstname').val(Cookies.get("firstname"));
@@ -294,9 +306,8 @@
 			});
 
 
-			function clearCookies() {
+			validate_step3 = function() {
 				var val = true;
-				alert('Iam here');
 				$('.account_error').hide();
 				$('.iban_error').hide();
 				if ($('.account').val() == '') {
@@ -307,19 +318,7 @@
 					val = false;
 					$('.iban_error').show();
 				}
-				if (val) {
-					Cookies.remove('firstname');
-					Cookies.remove('lastname');
-					Cookies.remove('telephone');
-					Cookies.remove('address');
-					Cookies.remove('house');
-					Cookies.remove('city');
-					Cookies.remove('zipcode');
-					Cookies.remove('account');
-					Cookies.remove('iban');
-					return true;
-				}
-				return false;
+				return val;
 			}
 		});
 	</script>
